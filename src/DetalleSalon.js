@@ -14,7 +14,7 @@ function DetalleSalon() {
   const [detalles, setDetalles] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/salones/${nombre}`)
+    axios.get(`https://salones-back.vercel.app/api/salones/${nombre}`)
       .then(res => setDetalles(res.data))
       .catch(err => console.error("Error al obtener detalles:", err));
   }, [nombre]);
