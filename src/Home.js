@@ -9,7 +9,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/salones")
+    axios.get("https://salones-back.vercel.app/api/salones")
       .then(res => setSalones(res.data))
       .catch(err => console.error("Error al obtener salones:", err));
   }, []);
@@ -23,7 +23,7 @@ function Home() {
     setHistorial((prev) => [...prev, { autor: "usuario", texto: preguntaUsuario }]);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/chat", { message: preguntaUsuario });
+      const res = await axios.post("https://salones-back.vercel.app/api/chat", { message: preguntaUsuario });
       const respuestaIA = res.data.reply;
       setHistorial((prev) => [...prev, { autor: "ia", texto: respuestaIA }]);
     } catch (err) {
